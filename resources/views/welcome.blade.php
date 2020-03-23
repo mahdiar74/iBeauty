@@ -7,7 +7,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">\
+        <link rel="stylesheet" href="http://static.ibeauty-dr.com/css/styles.css">
 
         <!-- Styles -->
         <style>
@@ -84,7 +85,7 @@
                     Laravel
                 </div>
 
-                <div class="links">
+                <div class="links success_alert">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
