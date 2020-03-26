@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::resource('/', 'HomeController');
+Route::prefix("admin")->namespace("Admin")->group(function(){
+    Route::resource('/', 'AdminController');
 });
