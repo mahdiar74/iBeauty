@@ -14,6 +14,7 @@ use App\Models\Portfolio;
 
 class Doctor extends Model
 {
+    protected $primaryKey = "doctorId";
     protected $fillable = [
         'medicalNumber' ,
         'activeDays' ,

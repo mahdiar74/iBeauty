@@ -49,7 +49,8 @@ class DoctorController extends Controller
         $folder = "/doctors/".date('y-m');
         $filename = $request->englishName.date("H-i").".".$avatar->getClientOriginalExtension();
         $path = $folder . "/" . $filename ;
-        $avatar->storeAs($folder,$filename);
+        Storage::disk("uploads")->put($folder,$avatar);
+        // dd($folder."/".$avatar->getClientOriginalName());
 
 
         $profile = Profile::create([
@@ -126,7 +127,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view("doctor.doctor");
     }
 
     /**
