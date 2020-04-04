@@ -49,8 +49,7 @@ class DoctorController extends Controller
         $folder = "/doctors/".date('y-m');
         $filename = $request->englishName.date("H-i").".".$avatar->getClientOriginalExtension();
         $path = $folder . "/" . $filename ;
-        Storage::disk("uploads")->put($folder,$avatar);
-        // dd($folder."/".$avatar->getClientOriginalName());
+        Storage::disk("uploads")->put($path,file_get_contents($avatar));
 
 
         $profile = Profile::create([

@@ -17,7 +17,7 @@
                     <h4>Family : {{ $doctor['profile']['lastName'] }}</h4>
                     <h4>Medical Number : {{ $doctor['medicalNumber'] }}</h4>
                     <h4>Phone : {{ $doctor['contact']['phone'] }}</h4>
-                    <img src="{{ Storage::url("app".$doctor['profile']['avatar']) }}" alt="">
+                    <img class="img-responsive" src="{{ asset("uploads/".$doctor['profile']['avatar']) }}" alt="">
                 </div>
             </div>
         @endforeach
