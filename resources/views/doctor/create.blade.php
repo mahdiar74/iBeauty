@@ -6,7 +6,7 @@
 @endsection
 
 @section("content")
-    <form action="/doctor" method="POST" class="p-xs-3">
+    <form action="/doctor" method="POST" class="p-xs-3" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <input type="text" name="name" placeholder="name" class="form-control">
@@ -34,6 +34,9 @@
         </div>
         <div class="form-group">
             <input type="file" name="avatar" class="form-control" data-max-file-size="3M" data-allowed-file-extensions="jpeg png jpg" data-max-height="1200" data-max-width="1200" >
+        </div>
+        <div class="form-group">
+            <input type="text" name="englishName" placeholder="نام انگلیسی پزشک" class="form-control">
         </div>
         <div class="form-group">
             <input type="text" name="medicalNumber" placeholder="medicalNumber" class="form-control">

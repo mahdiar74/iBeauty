@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Models\ImageGallery;
 use App\Models\VideoGallery;
 use App\Models\Profile;
@@ -22,7 +23,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        return view("doctor.index");
+        $doctors = Doctor::with("profile","contact")->get();
+        return view("doctor.index",compact("doctors"));
     }
 
     /**
@@ -44,6 +46,11 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         $avatar = $request->file("avatar");
+        $folder = "/doctors/".date('y-m');
+        $filename = $request->englishName.date("H-i").".".$avatar->getClientOriginalExtension();
+        $path = $folder . "/" . $filename ;
+        $avatar->storeAs($folder,$filename);
+
 
         $profile = Profile::create([
             'name' => $request->name,
@@ -53,22 +60,10 @@ class DoctorController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'birthDay' => $request->birthDay,
-            'avatar' => "",
+            'avatar' => $path,
             'fullName' => $request->name.$request->lastName
         ]);
         $profileId = $profile->profileId;
-        // $profile->name = $request->name;
-        // $profile->lastName = $request->lastName;
-        // $profile->age = $request->age;
-        // $profile->gender = $request->gender;
-        // $profile->phone = $request->phone;
-        // $profile->address = $request->address;
-        // $profile->birthDay = $request->birthDay;
-        // $profile->avatar = $request->avatar;
-        // $profile->fullName = $request->name.$request->lastName;
-        // $profile = $profile->save();
-        // $profileId = DB::table('profiles')->insertGetId($profile->toArray());
-
 
 
         $imageGallery = ImageGallery::create([
@@ -93,16 +88,6 @@ class DoctorController extends Controller
             "region" => $request->region
         ]);
         $contactId = $contact->contactId;
-        // $contact->city = $request->city;
-        // $contact->province = $request->province;
-        // $contact->phone = $request->phone;
-        // $contact->telegram = $request->telegram;
-        // $contact->site = $request->site;
-        // $contact->instagram = $request->instagram;
-        // $contact->email = $request->email;
-        // $contact->address = $request->address;
-        // $contact->region = $request->region;
-        // $contact = $contact->save();
 
         $popularity = Popularity::create([
             "like" => 0,
@@ -110,7 +95,6 @@ class DoctorController extends Controller
             "bookmark" => 0
         ]);
         $popularityId = $popularity->popularityId;
-        // $popularity = $popularity->save();
 
         $resume = Resume::create([
             "degree" => $request->degree ,
@@ -119,12 +103,6 @@ class DoctorController extends Controller
             "services" => $request->services ,
             "hospitals" => $request->hospitals
         ]);
-        // $resume->degree = $request->degree;
-        // $resume->startWork = $request->startWork;
-        // $resume->prizes = $request->prizes;
-        // $resume->services = $request->services;
-        // $resume->hospitals = $request->hospitals;
-        // $resume = $resume->save();
         $resumeId = $resume->resumeId;
 
         $doctor = Doctor::create([
@@ -138,18 +116,6 @@ class DoctorController extends Controller
             'resumeId' => $resumeId ,
             'videoGalleryId' => $videoGalleryId
         ]);
-        // $doctor->activeDays = $request->activeDays;
-        // $doctor->field = $request->field;
-        // $doctor->medicalNumber = $request->medicalNumber;
-        // $doctor->imageGalleryId = $imageGalleryId;
-        // $doctor->contactId = $contactId;
-        // $doctor->popularityId = $popularityId;
-        // $doctor->profileId = $profileId;
-        // $doctor->resumeId = $resumeId;
-        // $doctor->videoGalleryId = $videoGalleryId;
-
-        // $doctor = $doctor->save();
-
     }
 
     /**

@@ -43,11 +43,11 @@ class Doctor extends Model
     public function popularity(){
         return $this->hasOne(Popularity::class,"popularityId","popularityId");
     }
+    public function resume(){
+        return $this->hasOne(Resume::class,'resumeId',"resumeId");
+    }
     public function portfolio(){
         return $this->morphMany('App\Models\Portfolio',"portfolioable","portfolioableType","portfolioableId");
-    }
-    public function resume(){
-        return $this->morphMany('App\Models\Resume','resumable',"resumableType","resumableId");
     }
     public function comments(){
         return $this->morphMany('App\Models\Comment','commentable',"commentableType","commentableId");
