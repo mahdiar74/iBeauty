@@ -53,4 +53,8 @@ class Doctor extends Model
     public function comments(){
         return $this->morphMany('App\Models\Comment','commentable',"commentableType","commentableId");
     }
+    public function getRouteKeyName()
+    {
+        return 'doctorId';
+    }
 }

@@ -23,8 +23,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::with("profile","contact")->get();
-        return view("doctor.index",compact("doctors"));
+       //
     }
 
     /**
@@ -34,7 +33,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view("doctor.create");
+        //
     }
 
     /**
@@ -45,77 +44,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        $avatar = $request->file("avatar");
-        $folder = "/doctors/".date('y-m');
-        $filename = $request->englishName.date("H-i").".".$avatar->getClientOriginalExtension();
-        $path = $folder . "/" . $filename ;
-        Storage::disk("uploads")->put($path,file_get_contents($avatar));
-
-
-        $profile = Profile::create([
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'age' => $request->age,
-            'gender' => $request->gender,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'birthDay' => $request->birthDay,
-            'avatar' => $path,
-            'fullName' => $request->name.$request->lastName
-        ]);
-        $profileId = $profile->profileId;
-
-
-        $imageGallery = ImageGallery::create([
-            "name" => $request->name
-        ]);
-        $imageGalleryId = $imageGallery->imageGalleryId;
-
-        $videoGallery = VideoGallery::create([
-            "name" => $request->name
-        ]);
-        $videoGalleryId = $videoGallery->videoGalleryId;
-
-        $contact = Contact::create([
-            "city" => $request->city ,
-            "province" => $request->province ,
-            "phone" => $request->phone ,
-            "telegram" => $request->telegram ,
-            "site" => $request->site ,
-            "instagram" => $request->instagram ,
-            "email" => $request->email ,
-            "address" => $request->address ,
-            "region" => $request->region
-        ]);
-        $contactId = $contact->contactId;
-
-        $popularity = Popularity::create([
-            "like" => 0,
-            "view" => 0,
-            "bookmark" => 0
-        ]);
-        $popularityId = $popularity->popularityId;
-
-        $resume = Resume::create([
-            "degree" => $request->degree ,
-            "startWork" => $request->startWork ,
-            "prizes" => $request->prizes ,
-            "services" => $request->services ,
-            "hospitals" => $request->hospitals
-        ]);
-        $resumeId = $resume->resumeId;
-
-        $doctor = Doctor::create([
-            'activeDays' => $request->activeDays ,
-            'field' => $request->field ,
-            'medicalNumber' => $request->medicalNumber ,
-            'imageGalleryId' => $imageGalleryId ,
-            'contactId' => $contactId ,
-            'popularityId' => $popularityId ,
-            'profileId' => $profileId ,
-            'resumeId' => $resumeId ,
-            'videoGalleryId' => $videoGalleryId
-        ]);
+        //
     }
 
     /**

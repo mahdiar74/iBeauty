@@ -11,6 +11,7 @@ class Profile extends Model
         'name',
         'fullName',
         'lastName',
+        'enName',
         'gender',
         'age',
         'phone',

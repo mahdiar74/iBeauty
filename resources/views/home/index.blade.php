@@ -6,4 +6,6 @@
 
 @section("content")
     <h2>Sample Page</h2>
+    <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
 @endsection

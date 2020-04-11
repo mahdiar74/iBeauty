@@ -3,11 +3,18 @@
 
 @section("links")
     <link rel="stylesheet" href="{{ url('/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/addDoctor.css') }}">
+
 @endsection
 
 @section("content")
-    <form action="/doctor" method="POST" class="p-xs-3" enctype="multipart/form-data">
+    <form action="/admin/doctor" method="POST" class="p-xs-3" id="create-doctor" enctype="multipart/form-data">
         @csrf
+
+        <input type="hidden" name="imageGalleryId" id="imageGalleryId">
+        <input type="hidden" name="videoGalleryId" id="videoGalleryId">
+
         <div class="form-group">
             <input type="text" name="name" placeholder="name" class="form-control">
         </div>
@@ -86,15 +93,29 @@
         <div class="form-group">
             <input type="text" name="hospitals" placeholder="hospitals" class="form-control">
         </div>
-        <div class="form-group">
-            <input type="submit" class="form-control">
-        </div>
+
 
     </form>
+    <form action="/admin/doctor/uploadImage" enctype="multipart/form-data" method="POST" class="dropzone m-xs-3" id="dropZone">
+        @csrf
+        <input type="hidden" name="imgGalleryId" id="imgGalleryId">
+    </form>
+    <form action="/admin/doctor/uploadVideo" enctype="multipart/form-data" method="POST" class="dropzone m-xs-3" id="dropZoneVideo">
+        @csrf
+        <input type="hidden" name="vidGalleryId" id="vidGalleryId">
+    </form>
+    <br>
+    <br>
+    <br>
+    <div class="form-group">
+        <button class="form-control" id="submit">Submit</button>
+    </div>
+<br><br>
 @endsection
 
 
 @section("scripts")
     <script src="{{ url('/js/dropify.min.js') }}"></script>
+    <script src="{{ url('/js/dropzone.js') }}"></script>
     <script src="{{ url('/js/addDoctor.js') }}"></script>
 @endsection

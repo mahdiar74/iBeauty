@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,19 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('userId');
-            $table->string("phone");
+            $table->string("phone")->unique();
             $table->string("role");
-            $table->string("bookmarks");
-            $table->text("password");
-            $table->string("username");
-            $table->unsignedBigInteger("commentId");
+            $table->string('name')->nullable();
+            $table->string("username")->nullable();
+            $table->string('email')->nullable();
             $table->unsignedBigInteger("profileId");
-            $table->foreign("commentId")->references("commentId")->on("comments")->delete("cascade");
             $table->foreign("profileId")->references("profileId")->on("profiles")->delete("cascade");
             $table->integer('active')->length(1)->default(1);
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -36,6 +37,6 @@ class CreateUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user');
+        Schema::dropIfExists('users');
     }
 }

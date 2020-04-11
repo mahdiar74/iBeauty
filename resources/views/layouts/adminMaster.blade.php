@@ -296,7 +296,7 @@
                             <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                         </ul>
@@ -346,7 +346,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="/doctor"><i class="fa fa-circle-o"></i>لیست پزشکان</a></li>
+                        <li><a href="/admin/doctor"><i class="fa fa-circle-o"></i>لیست پزشکان</a></li>
                     </ul>
                     </li>
                     <li class="treeview">

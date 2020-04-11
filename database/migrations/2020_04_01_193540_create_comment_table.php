@@ -22,9 +22,11 @@ class CreateCommentTable extends Migration
             $table->string('phone');
             $table->string('name');
             $table->unsignedBigInteger('replyId');
+            $table->unsignedBigInteger('userId');
             $table->unsignedBigInteger('commentableId');
             $table->string('commentableType');
             $table->foreign("replyId")->references("commentId")->on("comments")->delete("cascade");
+            $table->foreign("userId")->references("userId")->on("users")->delete("cascade");
             $table->integer('active')->length(1)->default(1);
             $table->timestamps();
         });

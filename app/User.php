@@ -15,9 +15,17 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $primaryKey = "userId";
     protected $fillable = [
-        'name', 'email', 'password',
+        'phone' ,
+        'role' ,
+        'bookmarks' ,
+        'password' ,
+        'username' ,
+        'ameil' ,
+        'profileId'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +44,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    const ADMIN_TYPE = 10;  //Admin User
+    const DEFAULT_TYPE = 1; //Guest User
+    const USER_TYPE = 5; //Guest User
+
+    public function isAdmin(){
+        return $this->role == self::ADMIN_TYPE;
+    }
+    public function isGuest(){
+        return $this->role == self::DEFAULT_TYPE;
+    }
+    public function isUser(){
+        return $this->role == self::USER_TYPE;
+    }
 }

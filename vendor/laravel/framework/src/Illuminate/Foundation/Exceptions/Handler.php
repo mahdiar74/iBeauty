@@ -224,7 +224,9 @@ class Handler implements ExceptionHandlerContract
     {
         return $request->expectsJson()
                     ? response()->json(['message' => $exception->getMessage()], 401)
-                    : redirect()->guest($exception->redirectTo() ?? route('login'));
+                    : redirect()->guest($exception->redirectTo() ?? route("login"));
+                    // : redirect()->guest($exception->redirectTo() ?? route("login"));
+                    //Changed Inorder To Fix Authentication Issues, By Mahdiar
     }
 
     /**

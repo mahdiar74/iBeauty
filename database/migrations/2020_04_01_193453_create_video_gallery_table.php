@@ -15,7 +15,7 @@ class CreateVideoGalleryTable extends Migration
     {
         Schema::create('video_galleries', function (Blueprint $table) {
             $table->bigIncrements('videoGalleryId');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->integer('active')->length(1)->default(1);
             $table->timestamps();
         });

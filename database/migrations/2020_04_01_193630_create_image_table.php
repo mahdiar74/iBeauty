@@ -16,9 +16,10 @@ class CreateImageTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('imageId');
             $table->string('src');
-            $table->string('alt');
-            $table->string('description');
-            $table->string('title');
+            $table->string('alt')->nullable();
+            $table->string('description')->nullable();
+            $table->string('position')->nullable();
+            $table->string('title')->nullable();
             $table->unsignedBigInteger('imageGalleryId');
             $table->foreign("imageGalleryId")->references("imageGalleryId")->on("image_galleries")->delete("cascade");
             $table->integer('active')->length(1)->default(1);

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -80,5 +82,9 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function profile(){
+        return view("home.profile");
     }
 }
