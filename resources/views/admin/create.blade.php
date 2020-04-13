@@ -11,6 +11,12 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
         folder instead of downloading all of them to reduce the load. -->
     {{-- <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css"> --}}
+    <link  rel="stylesheet"href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-cSfiDrYfMj9eYCidq//oGXEkMc0vuTxHXizrMOFAaPsLt1zoCUVnSsURN+nef1lj"crossorigin="anonymous">
+<!-- compiled and minified theme CSS -->
+<link
+  rel="stylesheet"href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"integrity="sha384-YNPmfeOM29goUYCxqyaDVPToebWWQrHk0e3QYEs7Ovg6r5hSRKr73uQ69DkzT1LH"crossoigin="anonymous">
+  <script src="https://cdn.rtlcss.com/bootstrap/3.3.7/js/bootstrap.min.js"integrity="sha384-B4D+9otHJ5PJZQbqWyDHJc6z6st5fX3r680CYa0Em9AUG6jqu5t473Y+1CTZQWZv"crossorigin="anonymous"></script>
+<!-- compiled and minified JavaScript -->
 @endsection
 
 @section("styles")

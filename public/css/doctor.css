@@ -1,0 +1,32 @@
+html,body{
+    height:100%;
+    direction:rtl;
+    margin-top:100px;
+}
+@font-face {
+    font-family:yekan;
+    src: url(../fonts/B\ Yekan.ttf);
+ }
+ 
+ @font-face {
+    font-family:sultan-bold;
+    src: url(../fonts/Sultan\ Adan\ Bold.ttf);
+    font-weight: bold;
+ }
+ @font-face {
+    font-family:sultan-light;
+    src: url(../fonts/Sultan\ Adan\ Light.ttf);
+    font-weight:Light;
+ }
+ * {
+    font-family: yekan;
+ }
+ /**********************************************************
+                    Main Start
+ **********************************************************/
+ .doctor-name{
+     font-family:sultan-bold;
+ }
+ .doctor-avatar{
+     
+ }
